@@ -14,8 +14,8 @@ export default function VoucherList() {
     <div>
       <div className="flex justify-between mb-3">
         <div className="">
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <div className="relative">
+            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
               <HiSearch className="w-4 h-4 text-stone-500 dark:text-stone-400" />
             </div>
             <input
@@ -36,63 +36,63 @@ export default function VoucherList() {
           </Link>
         </div>
       </div>
-      <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-        <table class="w-full text-sm text-left rtl:text-right text-body">
-          <thead class="bg-neutral-secondary-soft border-b border-default">
+      <div className="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
+        <table className="w-full text-sm text-left rtl:text-right text-body">
+          <thead className="bg-neutral-secondary-soft border-b border-default">
             <tr>
-              <th scope="col" class="px-6 py-3 font-medium">
+              <th scope="col" className="px-6 py-3 font-medium">
                 #
               </th>
-              <th scope="col" class="px-6 py-3 font-medium">
+              <th scope="col" className="px-6 py-3 font-medium">
                 CUSTOMER NAME
               </th>
 
-              <th scope="col" class="px-6 py-3 font-medium text-end">
+              <th scope="col" className="px-6 py-3 font-medium text-end">
                 EMAIL
               </th>
-              <th scope="col" class="px-6 py-3 font-medium text-end">
+              <th scope="col" className="px-6 py-3 font-medium text-end">
                 CREATED AT
               </th>
-              <th scope="col" class="px-6 py-3 font-medium text-end">
+              <th scope="col" className="px-6 py-3 font-medium text-end">
                 ACTION
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default hidden last:table-row">
+            <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default hidden last:table-row">
               <td colSpan={5} className="px-6 py-4 text-center">
                 There is no Voucher
               </td>
             </tr>
-            <tr class="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
+            <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
               <td className="px-6 py-4">1</td>
               <th
                 scope="row"
-                class="px-6 py-4 font-medium text-heading whitespace-nowrap"
+                className="px-6 py-4 font-medium text-heading whitespace-nowrap"
               >
                 LiLy
               </th>
 
-              <td class="px-6 py-4 text-end">lily@gmail.com</td>
-              <td class="px-6 py-4 text-end">
+              <td className="px-6 py-4 text-end">lily@gmail.com</td>
+              <td className="px-6 py-4 text-end">
                 <p className="text-xs">7 Sep 2024</p>
                 <p className="text-xs">10:00 PM</p>
               </td>
 
-              <td class="px-6 py-4 text-end">
+              <td className="px-6 py-4 text-end">
                 <div
-                  class="inline-flex rounded-base shadow-xs -space-x-px"
+                  className="inline-flex rounded-base shadow-xs -space-x-px"
                   role="group"
                 >
                   <button
                     type="button"
-                    class="text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-s-base text-sm px-3 py-2 focus:outline-none"
+                    className="text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-s-base text-sm px-3 py-2 focus:outline-none"
                   >
                     <HiOutlinePencil className="" />
                   </button>
                   <button
                     type="button"
-                    class="text-red-600 bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 text-sm px-3 py-2 focus:outline-none"
+                    className="text-red-600 bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 text-sm px-3 py-2 focus:outline-none"
                   >
                     <HiOutlineTrash className="" />
                   </button>
