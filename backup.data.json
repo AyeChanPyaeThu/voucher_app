@@ -1,5 +1,4 @@
 {
-    
   "products": [
     {
       "id": 1,
@@ -61,6 +60,94 @@
       "price": 40,
       "created_at": "2024-01-19T12:04:59Z"
     }
+  ],
+  "vouchers": [
+    {
+      "voucher_id": "INV-20251121-4143",
+      "customer_name": "lily",
+      "customer_email": "li@gmail.com",
+      "sale_date": "2025-11-21",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1763728754007,
+          "product": {
+            "id": 3,
+            "product_name": "E-commerce Website Development",
+            "price": 600,
+            "created_at": "2024-01-12T14:22:57Z"
+          },
+          "quantity": "2",
+          "cost": 1200,
+          "created_at": "2025-11-21T12:39:14.007Z"
+        },
+        {
+          "id": 1763728758334,
+          "product": {
+            "id": 6,
+            "product_name": "Website Speed Optimization",
+            "price": 120,
+            "created_at": "2024-01-15T10:48:03Z"
+          },
+          "quantity": "5",
+          "cost": 600,
+          "created_at": "2025-11-21T12:39:18.334Z"
+        }
+      ],
+      "total": 1800,
+      "tax": 126.00000000000001,
+      "netTotal": 1926,
+      "id": 1
+    },
+    {
+      "voucher_id": "INV-20251121-1596",
+      "customer_name": "www",
+      "customer_email": "ww@gmail.com",
+      "sale_date": "2025-11-21",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1763728816142,
+          "product": {
+            "id": 4,
+            "product_name": "Website Maintenance (Monthly Plan)",
+            "price": 50,
+            "created_at": "2024-01-13T08:05:41Z"
+          },
+          "quantity": "3",
+          "cost": 150,
+          "created_at": "2025-11-21T12:40:16.142Z"
+        }
+      ],
+      "total": 150,
+      "tax": 10.500000000000002,
+      "netTotal": 160.5,
+      "id": 2
+    },
+    {
+      "voucher_id": "INV-20251121-8505",
+      "customer_name": "coco",
+      "customer_email": "co@gmail.com",
+      "sale_date": "2025-11-21",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1763728936830,
+          "product": {
+            "id": 2,
+            "product_name": "Business Website (Up to 5 Pages)",
+            "price": 350,
+            "created_at": "2024-01-11T11:45:10Z"
+          },
+          "quantity": "3",
+          "cost": 1050,
+          "created_at": "2025-11-21T12:42:16.830Z"
+        }
+      ],
+      "total": 1050,
+      "tax": 73.5,
+      "netTotal": 1123.5,
+      "id": 3
+    }
   ]
 }
-

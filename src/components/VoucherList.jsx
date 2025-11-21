@@ -8,8 +8,16 @@ import {
 } from "react-icons/hi";
 import { HiComputerDesktop } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import useSWR from "swr";
+import VoucherListRow from "./VoucherListRow";
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function VoucherList() {
+  const { data, isLoading, error } = useSWR(
+    import.meta.env.VITE_API_URL + "/vouchers",
+    fetcher
+  );
   return (
     <div>
       <div className="flex justify-between mb-3">
@@ -41,7 +49,7 @@ export default function VoucherList() {
           <thead className="bg-neutral-secondary-soft border-b border-default">
             <tr>
               <th scope="col" className="px-6 py-3 font-medium">
-                #
+                # VOUCHER ID
               </th>
               <th scope="col" className="px-6 py-3 font-medium">
                 CUSTOMER NAME
@@ -64,41 +72,10 @@ export default function VoucherList() {
                 There is no Voucher
               </td>
             </tr>
-            <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default">
-              <td className="px-6 py-4">1</td>
-              <th
-                scope="row"
-                className="px-6 py-4 font-medium text-heading whitespace-nowrap"
-              >
-                LiLy
-              </th>
-
-              <td className="px-6 py-4 text-end">lily@gmail.com</td>
-              <td className="px-6 py-4 text-end">
-                <p className="text-xs">7 Sep 2024</p>
-                <p className="text-xs">10:00 PM</p>
-              </td>
-
-              <td className="px-6 py-4 text-end">
-                <div
-                  className="inline-flex rounded-base shadow-xs -space-x-px"
-                  role="group"
-                >
-                  <button
-                    type="button"
-                    className="text-body bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 rounded-s-base text-sm px-3 py-2 focus:outline-none"
-                  >
-                    <HiOutlinePencil className="" />
-                  </button>
-                  <button
-                    type="button"
-                    className="text-red-600 bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 text-sm px-3 py-2 focus:outline-none"
-                  >
-                    <HiOutlineTrash className="" />
-                  </button>
-                </div>
-              </td>
-            </tr>
+            {!isLoading &&
+              data?.map((voucher, index) => (
+                <VoucherListRow key={index} voucher={voucher} />
+              ))}
           </tbody>
         </table>
       </div>
