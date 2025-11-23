@@ -61,5 +61,118 @@
       "created_at": "2024-01-19T12:04:59Z"
     }
   ],
-  "vouchers": []
+  "vouchers": [
+    {
+      "voucher_id": "INV-20251122-6335",
+      "customer_name": "lily",
+      "customer_email": "li@gmail.com",
+      "sale_date": "2025-11-22",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1763816174855,
+          "product": {
+            "id": 1,
+            "product_name": "Basic Website Development (Landing Page)",
+            "price": 150,
+            "created_at": "2024-01-10T09:12:34Z"
+          },
+          "quantity": "3",
+          "cost": 450,
+          "created_at": "2025-11-22T12:56:14.855Z"
+        },
+        {
+          "id": 1763816179167,
+          "product": {
+            "id": 6,
+            "product_name": "Website Speed Optimization",
+            "price": 120,
+            "created_at": "2024-01-15T10:48:03Z"
+          },
+          "quantity": "3",
+          "cost": 360,
+          "created_at": "2025-11-22T12:56:19.167Z"
+        },
+        {
+          "id": 1763816183790,
+          "product": {
+            "id": 9,
+            "product_name": "Website UI/UX Redesign",
+            "price": 450,
+            "created_at": "2024-01-18T15:55:26Z"
+          },
+          "quantity": "1",
+          "cost": 450,
+          "created_at": "2025-11-22T12:56:23.790Z"
+        }
+      ],
+      "total": 1260,
+      "tax": 88.2,
+      "netTotal": 1348.2,
+      "id": 1
+    },
+    {
+      "voucher_id": "INV-20251122-3635",
+      "customer_name": "mg mg",
+      "customer_email": "mg@gmail.com",
+      "sale_date": "2025-11-22",
+      "all_correct": "true",
+      "records": [
+        {
+          "id": 1763816682429,
+          "product": {
+            "id": 2,
+            "product_name": "Business Website (Up to 5 Pages)",
+            "price": 350,
+            "created_at": "2024-01-11T11:45:10Z"
+          },
+          "quantity": "3",
+          "cost": 1050,
+          "created_at": "2025-11-22T13:04:42.429Z"
+        }
+      ],
+      "total": 1050,
+      "tax": 73.5,
+      "netTotal": 1123.5,
+      "id": 2
+    },
+    {
+      "voucher_id": "INV-20251123-8420",
+      "customer_name": "ko ko",
+      "customer_email": "ko@gmail.com",
+      "sale_date": "2025-11-23",
+      "all_correct": "true",
+      "redirect_to_detail": "true",
+      "records": [
+        {
+          "id": 1763907922192,
+          "product": {
+            "id": 3,
+            "product_name": "E-commerce Website Development",
+            "price": 600,
+            "created_at": "2024-01-12T14:22:57Z"
+          },
+          "quantity": "3",
+          "cost": 1800,
+          "created_at": "2025-11-23T14:25:22.192Z"
+        },
+        {
+          "id": 1763907926022,
+          "product": {
+            "id": 9,
+            "product_name": "Website UI/UX Redesign",
+            "price": 450,
+            "created_at": "2024-01-18T15:55:26Z"
+          },
+          "quantity": "3",
+          "cost": 1350,
+          "created_at": "2025-11-23T14:25:26.022Z"
+        }
+      ],
+      "total": 3150,
+      "tax": 220.50000000000003,
+      "netTotal": 3370.5,
+      "id": 3
+    }
+  ]
 }

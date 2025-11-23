@@ -4,6 +4,11 @@ import ShowDate from "./ShowDate";
 import useSWR, { useSWRConfig } from "swr";
 import toast from "react-hot-toast";
 import { bouncy } from "ldrs";
+import { Link } from "react-router-dom";
+import {
+  HiOutlineArrowDownLeft,
+  HiOutlineArrowDownRight,
+} from "react-icons/hi2";
 
 bouncy.register();
 
@@ -49,7 +54,7 @@ export default function VoucherListRow({
           <button
             type="button"
             onClick={handleDeleteBtn}
-            className="size-10 flex justify-center items-center text-red-600 bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 text-sm focus:outline-none"
+            className="size-10 flex justify-center items-center text-red-600 bg-neutral-primary-soft border border-default rounded-l-lg hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 text-sm focus:outline-none"
           >
             {isDeleting ? (
               <l-bouncy size={20} speed={1.75} color="red"></l-bouncy>
@@ -57,6 +62,13 @@ export default function VoucherListRow({
               <HiOutlineTrash />
             )}
           </button>
+
+          <Link
+            to={`/voucher/detail/${id}`}
+            className="size-10 rounded-r-lg flex justify-center items-center text-stone-600 bg-neutral-primary-soft border border-default hover:bg-neutral-secondary-medium hover:text-heading focus:ring-3 focus:ring-neutral-tertiary-soft font-medium leading-5 text-sm focus:outline-none"
+          >
+            <HiOutlineArrowDownRight />
+          </Link>
         </div>
       </td>
     </tr>

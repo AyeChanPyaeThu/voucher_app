@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import SaleForm from "../pages/SaleForm";
 import VoucherTable from "./VoucherTable";
 import useRecordStore from "../stores/userRecordStore";
+import { useNavigate } from "react-router-dom";
 
 export default function VoucherInformation() {
   const {
@@ -18,6 +19,7 @@ export default function VoucherInformation() {
   tailspin.register();
 
   const { records, resetRecord } = useRecordStore();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     setIsSending(true);
@@ -27,7 +29,7 @@ export default function VoucherInformation() {
     const netTotal = total + tax;
     const currentVoucher = { ...data, records, total, tax, netTotal };
 
-    await fetch(import.meta.env.VITE_API_URL + "/vouchers", {
+    const res = await fetch(import.meta.env.VITE_API_URL + "/vouchers", {
       method: "POST",
       body: JSON.stringify(currentVoucher),
       headers: {
@@ -35,12 +37,20 @@ export default function VoucherInformation() {
       },
     });
 
+    const json = await res.json();
+
+    // console.log(json);
+
     toast.success("Voucher saved successfully");
 
     resetRecord();
     reset();
 
     setIsSending(false);
+
+    if (data.redirect_to_detail) {
+      navigate(`/voucher/detail/${json.id}`);
+    }
   };
 
   function generateInvoiceNumber() {
@@ -183,8 +193,14 @@ export default function VoucherInformation() {
 
       <VoucherTable />
 
-      <div className="flex justify-end items-center  gap-3">
-        <div className="flex  items-center ">
+      <div className="flex flex-col justify-end items-end  gap-3">
+        <div className="flex  items-center gap-2 ">
+          <label
+            htmlFor="all_correct"
+            className="select-none ms-2 text-sm font-medium text-heading"
+          >
+            Make sure all fields are correct
+          </label>
           <input
             {...register("all_correct", {
               required: true,
@@ -195,18 +211,31 @@ export default function VoucherInformation() {
             defaultValue
             className="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
           />
+        </div>
+
+        <div className="flex  items-center gap-2 ">
           <label
             htmlFor="all_correct"
             className="select-none ms-2 text-sm font-medium text-heading"
           >
-            Make sure all fields are correct
+            Redirect to Voucher Detail
           </label>
+          <input
+            {...register("redirect_to_detail", {
+              required: true,
+            })}
+            form="infoForm"
+            id="redirect_to_detail"
+            type="checkbox"
+            defaultValue
+            className="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
+          />
         </div>
 
         <button
           type="submit"
           form="infoForm"
-          className="text-white inline-flex gap-3 bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+          className="text-white inline-flex gap-3 bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-5 focus:outline-none"
         >
           <span>Confirm Voucher</span>
           {isSending && (
