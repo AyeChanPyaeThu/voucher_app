@@ -91,21 +91,25 @@ export default function VoucherCard() {
               <td className="py-2 text-right text-sm" colSpan={4}>
                 Total
               </td>
-              <td className="py-2 text-right text-sm">{data.total}</td>
+              <td className="py-2 text-right text-sm">
+                {data.total.toFixed(2)}
+              </td>
             </tr>
 
             <tr className="border-b border-gray-200">
               <td className="py-2 text-right text-sm" colSpan={4}>
-                Tex
+                Tax
               </td>
-              <td className="py-2 text-right text-sm">{data.tax}</td>
+              <td className="py-2 text-right text-sm">{data.tax.toFixed(2)}</td>
             </tr>
 
             <tr className="border-b border-gray-200">
               <td className="py-2 text-right text-sm" colSpan={4}>
                 Net Total
               </td>
-              <td className="py-2 text-right text-sm">{data.netTotal}</td>
+              <td className="py-2 text-right text-sm">
+                {data.netTotal.toFixed(2)}
+              </td>
             </tr>
           </tfoot>
         </table>
@@ -138,14 +142,44 @@ export default function VoucherCard() {
       <div className=" flex flex-col gap-3">
         <button
           onClick={handlePrint}
-          className="text-white flex justify-center items-center gap-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="flex justify-center items-center gap-3 text-white 
+bg-[#1d4ed8] 
+hover:bg-[#1e40af] 
+focus:ring-4 
+focus:outline-none 
+focus:ring-[#93c5fd] 
+font-medium 
+rounded-lg 
+text-sm 
+w-full sm:w-auto 
+px-5 py-2.5 
+text-center 
+dark:bg-[#2563eb] 
+dark:hover:bg-[#1d4ed8] 
+dark:focus:ring-[#1e3a8a]
+"
         >
           Print Voucher
         </button>
 
         <button
           onClick={handlePdf}
-          className="text-white flex justify-center items-center gap-3 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="flex justify-center items-center gap-3 
+text-white 
+bg-[#1d4ed8] 
+hover:bg-[#1e40af] 
+focus:ring-4 
+focus:outline-none 
+focus:ring-[#93c5fd] 
+font-medium 
+rounded-lg 
+text-sm 
+w-full sm:w-auto 
+px-5 py-2.5 
+text-center 
+dark:bg-[#2563eb] 
+dark:hover:bg-[#1d4ed8] 
+dark:focus:ring-[#1e3a8a]"
         >
           Download PDF
         </button>

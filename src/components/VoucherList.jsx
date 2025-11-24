@@ -1,21 +1,46 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import {
   HiOutlinePencil,
   HiOutlineTrash,
   HiPlus,
   HiSearch,
   HiTrash,
+  HiX,
 } from "react-icons/hi";
 import { HiComputerDesktop } from "react-icons/hi2";
 import { Link } from "react-router-dom";
 import useSWR from "swr";
 import VoucherListRow from "./VoucherListRow";
+import { debounce, throttle } from "lodash";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function VoucherList() {
+  const [search, setSearch] = useState("");
+  console.log(search);
+
+  const searchInput = useRef();
+  console.log(searchInput);
+
+  // const handleSearch = (e) => {
+  //   setSearch(e.target.value);
+  //   // console.log(e.target.value);
+  // };
+
+  const handleSearch = debounce((e) => {
+    console.log(e.target.value);
+    setSearch(e.target.value);
+  }, 500);
+
+  const handleClearSearch = () => {
+    setSearch("");
+    searchInput.current.value = "";
+  };
+
   const { data, isLoading, error } = useSWR(
-    import.meta.env.VITE_API_URL + "/vouchers",
+    search
+      ? `${import.meta.env.VITE_API_URL}/vouchers?voucher_id_like=${search}`
+      : `${import.meta.env.VITE_API_URL}/vouchers`,
     fetcher
   );
   return (
@@ -28,9 +53,22 @@ export default function VoucherList() {
             </div>
             <input
               type="text"
+              ref={searchInput}
+              onChange={handleSearch}
               className="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-3  shadow-xs placeholder:text-body"
               placeholder="Search Voucher"
             />
+            {search && (
+              <button
+                className="absolute right-2 top-0 bottom-0 cursor-pointer"
+                onClick={handleClearSearch}
+              >
+                <HiX
+                  fill="red"
+                  className="scale-100 active:scale-80 duration-200"
+                />
+              </button>
+            )}
           </div>
         </div>
         <div className="">
@@ -72,10 +110,17 @@ export default function VoucherList() {
                 There is no Voucher
               </td>
             </tr>
-            {!isLoading &&
+            {isLoading ? (
+              <tr className="odd:bg-neutral-primary even:bg-neutral-secondary-soft border-b border-default hidden last:table-row">
+                <td colSpan={5} className="px-6 py-4 text-center">
+                  Loading...
+                </td>
+              </tr>
+            ) : (
               data?.map((voucher, index) => (
                 <VoucherListRow key={index} voucher={voucher} />
-              ))}
+              ))
+            )}
           </tbody>
         </table>
       </div>
